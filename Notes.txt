@@ -29,6 +29,7 @@ Abstracto:
 Virtual: si heredo un comportamiento debería hacer un override. Heredo un método/comportamiento con la posibilidad de modificarlo (o debería).
 
 DLL: archivo binario. Referenciables: permite llamarla desde otro lado. Ejemplo: import en Java
+Archivo generado al compilar un proyecto.
 
 Class library: librería dinámica que se monta en memoria una vez que se llama la ejecución.
 
@@ -70,9 +71,49 @@ git push -u origin master	subir los cambios
 
 "Estoy parado en un Working Directory, al hacer un Add paso todo a un "Staging area". Una vez que hago el commit, paso al "Head". Todo lo que está en el head ya está subido."
 
+borrar bin y objects y luego pushear
+
 Estados Git:
 
 Untracked		al ser nuevo, no tiene seguimiento de los archivos
 Staged			está creado pero no está agregado, falta commit
 Committed		todos mis cambios ya están guardados, commiteados
 Modified		hay cambios sin guardar en el archivo
+
+Set mínimo de archivos:
+
+CI = define ciertos pasos de validación previa a subir a git para evitar pisarse y otros posibles inconvenientes.
+
+Trunk Based Dev.com:
+
+estrategias de branching, metodología de trabajo con git (master, development)
+
+generar un branch a partir del master y luego unificarlo con master. Branch más pequeños (2/3 días) y luego lo subo al master.
+
+31/05 - Repaso general
+
+Using: invocar namespace. Es un import.
+
+using ( var A=SW()) {}		disposal. Reservo memoria definida entre los () y al final de la ejecución la libera. No espera al garbage disposal.
+
+try/catch			prueba lo que está en el try, si no anda, devuelve el catch previo.
+
+LINQ:
+
+- Where(predicate)		subset de una lista. Filtra la lista al final con un criterio. Devuelve un nuevo objeto (lista) filtrado.
+- Select(x=>x.edad)		devuelve exactamente lo que tengo entre (), con el tipo de dato que tiene el campo (en este caso edad).
+- Single			Si la lista es más de un elemento, da error. Lista vacía: devuelve null.
+- Fod				First or default. Filtro simil where pero devuelve solo el primero o nulo, por más que haya varios. Lista vacía: devuelve null.
+- Any(condición)		Devuelve true o false según encuentre o no alguien que cumpla la condición.
+- Union				
+
+GENERICS:
+
+public class List<T> : where T : IDisposable
+	T obj = new List?
+
+func:
+
+public List<T> Filter<T>(List<T> lista)
+
+return lista.w().ToList()
