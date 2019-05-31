@@ -1,0 +1,11 @@
+09:15
+
+Generics. Clase que implemente una interfaz.
+
+10:00
+
+Excepciones
+
+10:45
+
+C# FUNC - Lambda

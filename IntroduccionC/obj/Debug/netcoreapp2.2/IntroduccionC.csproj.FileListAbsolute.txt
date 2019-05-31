@@ -1,0 +1,4 @@
+C:\Users\Santiago\Desktop\Lagash\IntroduccionC\obj\Debug\netcoreapp2.2\IntroduccionC.csprojAssemblyReference.cache
+C:\Users\Santiago\Desktop\Lagash\IntroduccionC\obj\Debug\netcoreapp2.2\IntroduccionC.csproj.CoreCompileInputs.cache
+C:\Users\Santiago\Desktop\Lagash\IntroduccionC\obj\Debug\netcoreapp2.2\IntroduccionC.AssemblyInfoInputs.cache
+C:\Users\Santiago\Desktop\Lagash\IntroduccionC\obj\Debug\netcoreapp2.2\IntroduccionC.AssemblyInfo.cs

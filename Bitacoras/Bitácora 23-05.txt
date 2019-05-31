@@ -1,0 +1,33 @@
+09:30
+
+Modelado de objetos: explicación de herencia de objetos con el ejemplo de factura y nota de crédito.
+
+Diferenciación entre public y private (variables y funciones). Protected.
+
+Diferenciación entre clases y objetos.
+
+10:00	
+
+Uso de objetos en funciones condicionados por su herencia. Posibilidad de hacer el código más genérico a partir de la herencia, es decir,
+todo los métodos que arme van a poder recibir distintos tipos de objetos sin problemas.
+
+Llamado de métodos static
+Generación de objetos nulos
+
+10:30
+
+Método constructor (comparte nombre con la clase). Clases con método constructor privado no pueden ser referenciadas.
+
+Protección de datos con private/protected. Consultas de datos privados por medio de métodos públicos con su clase en común.
+
+11:00 - Receso.
+
+11:30
+
+Métodos y clases abstractas (obligo a implementar "textualmente").
+
+Métodos y clases virtuales (obligo a implementar permitiendo modificaciones).
+
+12:00
+
+Interfaces (define qué metodos debe haber).

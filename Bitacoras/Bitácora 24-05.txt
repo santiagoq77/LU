@@ -1,0 +1,27 @@
+09:15
+
+Repaso OOP. Herencia. Ejemplo mamíferos. 
+
+9:30
+
+Encapsulamiento (TELL DON'T ASK). GET/SET. Static. Polimorfismo. Abstracción. Interface. Diferenciación. Abstracto/Virtual. Compilación.
+Package manager. Importar librerías. 
+
+10:00
+
+Estructura de proyecto. DLL. GAC. JSON. PRB. Recursividad.
+
+10:30
+
+SOLID. Actividad.
+
+Actividad:
+
+¿Qué estamos haciendo para que el proyecto sea exitoso? - ¿Cómo podemos hacer que todo lo que nos genera molestia o consideramos una pérdida
+pase a ser algo positivo?
+
+Experiencias personales
+
+12:00
+
+ 

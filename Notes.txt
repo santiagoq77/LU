@@ -1,0 +1,78 @@
+OOP:
+
+Por archivo, genero una clase distinta. En lugar de tener un archivo con mil lineas de código, lo organizo en varios archivos más pequeños (no spaghetti)
+
+Objetos manejan comportamiento (métodos, cosas que hacen) y propiedades.
+
+Herencia: comparten atributos y comportamientos. Evito replicar el código. Si necesito que una clase tenga los mismos campos o mismas funciones, las codifico
+solo en la clase "padre".
+
+Encapsulamiento: no es propio de C#. Los métodos/características son private/protected/public. TELL DON'T ASK.
+		 Las propiedades no son modificables. Cada objeto es autónomo.
+
+GET/SET: {get; set;}. Permite que las clases externas puedan modificar mis propiedades.
+
+Static: método dentro de la clase que no pertenece a ninguna instancia. Métodos que puedo usar de la clase sin necesidad de instanciarlos.
+
+Polimorfirmo: cómo responden dos objetos a un mensaje. Declarar una función que devuelven los mismos valores pero la cantidad de parámetros o los tipos de
+parámetros son distintos. Hacen lo mismo, reciben otros datos y devuelven datos distintos.
+
+Abstracción: cuando le pido algo a un objeto sin tener interés en cómo lo hace. concepto black box. forma de interactuar con los objetos, "separarme" del problema
+puedo llamar a un método que todavía no está codeado.
+
+Interface: "contrato" - declaración. si implemento una interfaz debo usar todos los métodos y propiedades declarados en ella. No define comportamiento.
+NO SE HEREDAN, SE IMPLEMENTAN. No hay nada que heredar, no define comportamiento. No se puede hacer un new. Varias clases pueden implementar una misma interfaz.
+Clase abstracta: a diferencia de la interface, define comportamiento. No se puede instanciar, solo se puede heredar. NO se puede hacer un new.
+
+Static: al comenzar la ejecución ya va a estar instanciado y cargado con el valor que definí en un principio. 
+Abstracto: 
+Virtual: si heredo un comportamiento debería hacer un override. Heredo un método/comportamiento con la posibilidad de modificarlo (o debería).
+
+DLL: archivo binario. Referenciables: permite llamarla desde otro lado. Ejemplo: import en Java
+
+Class library: librería dinámica que se monta en memoria una vez que se llama la ejecución.
+
+Nuget: package manager que me permite bajar cosas de internet y poder utilizarlas en nuestro código. AKA Importar librerías.
+
+Estructura de proyecto:
+
+Solución
+   |
+   |--> Project > genero DLL (assembley) >
+   |--> Project > genero DLL		 >
+
+GAC: directorio que maneja todas las assembley. (Global Assembley Cache)
+
+JSON: Java Script Object notation. Representación de objeto. 
+
+PDB: ayuda a debuggear. Me permite poner breakpoints y usar funcionalidades del debugger. Puedo utilizar trace para identificar puntos críticos.
+
+Recursividad: mala práctica, lo opuesto a performante. 
+
+SOLID ---> principios/criterios de diseño empleados como reglas. Buenas prácticas a la hora de diseñar objetos.
+
+S: Single responsability. Responsabilidad. Independencia de otras clases. Si es una clase muy extensa respecto a sus métodos debería considerar particionarla.
+
+---
+
+Comandos Git:
+
+git init			inicio un repositorio (oculto) vacío en el directorio donde estoy parado
+touch <name>			genero un file
+git status			devuelve los cambios que no actualizaste/guardaste
+git add	<nombre>		permite agregar cambios/archivos individuales a tu commit (hito: estado de algo en el tiempo. Deben ser cosas puntuales, pequeñas, seguras y que funcionen, que representen un incremento de valor)
+git add .			subo todos los cambios de la carpeta en la que estoy parado. Si tengo otro directorio "anidado" meto todo, incluídas sus subcarpetas, no las anteriores.
+git add --all / -A		todos los cambios del repositorio sin importar dónde estoy parado.
+git commit -m "mensaje"		"m" mensaje que vamos a dejar en el commit para entender qué hice
+git remote add origin <url>	
+git pull remote branch		traer los cambios
+git push -u origin master	subir los cambios
+
+"Estoy parado en un Working Directory, al hacer un Add paso todo a un "Staging area". Una vez que hago el commit, paso al "Head". Todo lo que está en el head ya está subido."
+
+Estados Git:
+
+Untracked		al ser nuevo, no tiene seguimiento de los archivos
+Staged			está creado pero no está agregado, falta commit
+Committed		todos mis cambios ya están guardados, commiteados
+Modified		hay cambios sin guardar en el archivo

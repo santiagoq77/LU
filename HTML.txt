@@ -1,0 +1,72 @@
+<h1>                                                    título 
+<h2>                                                    subtítulo 
+<p>                                                     párrafo 
+<!-- -->                                                comentariado 
+<br>							salto de párrafo
+<img src="" alt="">                                     insertar imagen 
+<a                                                      anchor (hipervínculo) 
+        href="">texto                                   link a web externa 
+        href="#"                                        posición dentro de la página (debo agregar un id. Ej: <footer id="">texto </footer>) 
+        href="" target="_blank"                         abre en otra ventana 
+<div>							division element (hago una selección a la cual le puedo agregar ciertos atributos)
+<head>							definiciones web no visibles
+<body>							todo lo que voy a hacer display
+
+Hipervínculo embebido en un párrafo: 
+
+<p> View more <a target="_blank" href="http://freecatphotoapp.com" target="_blank">cat photos</a> </p> 
+
+<ul>                                                    lista de items 
+  <li> / </li> 
+<ol>                                                    lista de items numerados 
+<input type="text" placeholder="Ingrese valor">         cuadro de texto 
+
+Asignar acción a input: 
+
+<form action="/submit-cat-photo"> 
+        <input type="text" placeholder="cat photo URL"></form> 
+
+<button type="submit">botón submitir</button>           botón de acción 
+
+Botones multiple choice (lógica OR):
+
+<label for="indoor">
+    <input type="radio" id="indoor" name="indoor-outdoor"> Indoor
+  </label>
+
+<label for="outdoor">
+    <input type="radio" id="outdoor" name="indoor-outdoor"> Outdoor
+  </label>
+
+Checkbox (lógica AND):
+
+<label for="loving"> <input id="loving" type="checkbox" name="personality"> Loving </label>
+<label for="grumpy"> <input id="grumpy" type="checkbox" name="personality"> Grumpy </label>
+
+CSS
+
+<h2 style="color: blue;">CatPhotoApp</h2>		modificar el color del texto
+<style> .nombre-clase {color: blue;}			generar clase
+<h2 class="red-text">CatPhotoApp</h2>			asignar clase
+<style> #nombre-id {color: blue;}			simil clase, pero se asigna a un único elemento y tiene mayor "jerarquía" que la clase
+[type='radio'] {margin wtv}				asigno a todos los 'radio' el mismo atributo
+
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">	importar fuentes
+
+atributos:
+
+color: blue;
+font-size: 16px;
+font-family: Lobster, monospace;			principal y genérica en caso de no encontrar la principal
+background-color: silver;
+width: 100px;
+border-color: green;
+
+border-width: 10px;
+
+border-style: solid;
+border-radius: 10px; o 50%
+padding: 10px;						espaciado (top, right, bottom, left, o con sentido horario)
+text-align: center;
+margin: 20px;						(top, right, bottom, left, o con sentido horario)
+

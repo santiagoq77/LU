@@ -1,0 +1,200 @@
+SELECT - extracts data from a database
+UPDATE - updates data in a database
+DELETE - deletes data from a database
+INSERT INTO - inserts new data into a database
+CREATE DATABASE - creates a new database
+ALTER DATABASE - modifies a database
+CREATE TABLE - creates a new table
+ALTER TABLE - modifies a table
+DROP TABLE - deletes a table
+CREATE INDEX - creates an index (search key)
+DROP INDEX - deletes an index
+
+Comandos:
+
+SELECT * INTO CustomersOrderBackup2017 FROM Customers WHERE 1=0;		Creo una tabla nueva vacía
+
+SELECT column1 FROM table_name;
+SELECT DISTINCT column1 FROM table_name;					lista los elementos una única vez
+SELECT COUNT(DISTINCT Country) FROM Customers;					devuelve cantidad
+SELECT column1 FROM table_name WHERE condition;					si es texto va entre ' ', operadores lógicos y BETWEEN, LIKE e IN
+SELECT column1 FROM table_name WHERE condition1 AND/OR condition2;		también puede ser WHERE NOT condition1;
+SELECT column1 FROM table_name WHERE condition1 AND (condition2 OR condition3);
+SELECT column1 FROM table_name ORDER BY column1 DESC;				por defecto es ASC, sino aclaro DESC
+SELECT column1 FROM table_name WHERE column2 IS NULL/IS NOT NULL;
+SELECT TOP number|percent column(s) FROM table_name WHERE condition;
+SELECT MIN(column_name) FROM table_name WHERE condition;
+SELECT MAX(column_name) FROM table_name WHERE condition;
+SELECT COUNT/AVG/SUM(column1) FROM table_name WHERE condition;
+SELECT column_name(s) FROM table_name WHERE column1 NOT/BETWEEN value1 AND value2;
+SELECT * FROM Orders WHERE OrderDate BETWEEN #01/07/1996# AND #31/07/1996#;	Entre fechas. Si pongo la fecha entre '' uso AAAA-MM-DD
+SELECT column1, column2 + ', ' + column2 + ' ' + column3 + ', ' ´+ column3 AS alias_name FROM table_name;	De esta forma obtengo el campo de la columna 1 y los campos 1, 2 y 3 "concatenados"
+
+LIKE:
+
+%	Represents zero or more characters			bl% finds bl, black, blue, and blob
+_	Represents a single character				h_t finds hot, hat, and hit
+[]	Represents any single character within the brackets	h[oa]t finds hot and hat, but not hit
+^	Represents any character not in the brackets		h[^oa]t finds hit, but not hot and hat
+-	Represents a range of characters			c[a-b]t finds cat and cbt (between a and b)
+!								negador, también puede ser NOT LIKE
+
+SELECT column1 FROM table_name WHERE column1 LIKE/NOT LIKE 'a%' '%a' '_a%' 'a%_%_%'
+
+INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+
+UPDATE table_name SET column1='value1' WHERE column2='value';
+
+DELETE FROM table_name WHERE condition;
+
+SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+
+Ejemplo INNER de a 3 tablas:
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName FROM ((Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID) INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name;		Si es LEFT muestro toda la tabla1 y las coincidencias, si es RIGHT muestro toda la tabla2 y las coincidencias
+
+SELECT column_name(s) FROM table1 FULL OUTER JOIN table2 ON table1.column_name = table2.column_name WHERE condition;	Muestra todos los registros de ambas tablas con una condición WHERE.
+
+SELECT column_name(s) FROM table1 WHERE condition1 UNION/UNION ALL SELECT column_name(s) FROM table2 WHERE condition1;	UNION ALL trae duplicados también
+
+SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID GROUP BY ShipperName;
+
+------
+
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+GROUP BY LastName
+HAVING (LastName = 'Davolio' OR LastName = 'Fuller') AND COUNT(Orders.OrderID) >= 20;
+
+------
+
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS(SELECT ProductName FROM Products WHERE SupplierId = Suppliers.supplierId AND Price < 20);
+
+SELECT ProductName 
+FROM Products
+WHERE ProductID = ANY/ALL (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);		El ANY devuelve TRUE si alguno de los registros cumple la condición, el ALL devuelve si todos cumplen
+
+SELECT column1, column2, etc INTO newtable [IN externaldb] FROM oldtable WHERE condition;	Copio tal cual a otra tabla. Si es externa agrego el IN con el nombre entre ' '.
+
+SELECT Customers.CustomerName, Orders.OrderID INTO CustomersOrderBackup2017 FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID; Lo mismo pero con un JOIN
+
+INSERT INTO table2 (column1, column2, column3, ...) SELECT column1, column2, column3, ... FROM table1 WHERE condition;
+
+CASE:
+
+-DEVUELVO TEXTO-
+
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN "The quantity is greater than 30"
+    WHEN Quantity = 30 THEN "The quantity is 30"
+    ELSE "The quantity is under 30"
+END AS QuantityText
+FROM OrderDetails;
+
+-DEVUELVO INPUT-
+
+SELECT CustomerName, City, Country
+FROM Customers
+ORDER BY
+(CASE
+    WHEN City IS NULL THEN Country
+    ELSE City
+END);
+
+ISNULL:
+
+SELECT ProductName, UnitPrice * (UnitsInStock + ISNULL(UnitsOnOrder, 0)) FROM Products		Reemplaza el NULL por otro valor alternativo?
+
+STORED PROCEDURE (parametrado):
+
+CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)			Defino el tipo de entrada (nvarchar(30))
+AS
+SELECT * FROM Customers WHERE City = @City
+GO;
+
+EXEC SelectAllCustomers City = "London";
+
+Comentariado:
+
+-- oración comentariada
+
+/* párrafo entero
+comentariado*/
+
+SELECT column1, /*column2, */ column3 FROM table_name;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL DATABASE:
+
+CREATE DATABASE table_name;
+DROP DATABASE table_name;
+
+BACKUP DATABASE databasename TO DISK = 'filepath' WITH DIFFERENTIAL;
+
+CREATE TABLE Persons (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Address varchar(255),
+    City varchar(255) 
+);
+
+DROP TABLE table_name;
+TRUNCATE TABLE table_name;		"Formatea"
+
+ALTER TABLE table_name
+ALTER COLUMN column_name datatype;
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ALTER TABLE table_name
+ADD column_name datatype;
+
+Campo autoincremental (suele ser un ID único que termino usando como PRIMARY KEY)
+
+CREATE TABLE Persons (
+    Personid int NOT NULL AUTO_INCREMENT,		si lo redefino: ALTER TABLE AUTO_INCREMENT=99; empieza desde ése número
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int,
+    PRIMARY KEY (Personid)
+);
+
+CREATE TABLE Persons (
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
+
+In the example above, the starting value for IDENTITY is 1, and it will increment by 1 for each new record.
+
+Tip: To specify that the "Personid" column should start at value 10 and increment by 5, change it to IDENTITY(10,5).
+
+FECHAS:
+
+DATE - format YYYY-MM-DD
+DATETIME - format: YYYY-MM-DD HH:MI:SS
+SMALLDATETIME - format: YYYY-MM-DD HH:MI:SS
+TIMESTAMP - format: a unique number
+
+Create Views: (views como result-set update, porque se genera al momento de tirar la query)
+
+CREATE VIEW [Brazil Customers] AS
+SELECT CustomerName, ContactName
+FROM Customers
+WHERE Country = "Brazil";
+
+Invocar 				-	Drop
+
+SELECT * FROM [Brazil Customers];		DROP VIEW [Brazil Customers];
+
+---------------
+

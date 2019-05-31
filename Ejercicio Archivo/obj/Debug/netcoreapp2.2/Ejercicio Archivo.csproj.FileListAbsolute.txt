@@ -1,0 +1,11 @@
+C:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\bin\Debug\netcoreapp2.2\Ejercicio Archivo.deps.json
+C:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\bin\Debug\netcoreapp2.2\Ejercicio Archivo.runtimeconfig.json
+C:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\bin\Debug\netcoreapp2.2\Ejercicio Archivo.runtimeconfig.dev.json
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\bin\Debug\netcoreapp2.2\Ejercicio Archivo.dll
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\bin\Debug\netcoreapp2.2\Ejercicio Archivo.pdb
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\obj\Debug\netcoreapp2.2\Ejercicio Archivo.csprojAssemblyReference.cache
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\obj\Debug\netcoreapp2.2\Ejercicio Archivo.csproj.CoreCompileInputs.cache
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\obj\Debug\netcoreapp2.2\Ejercicio Archivo.AssemblyInfoInputs.cache
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\obj\Debug\netcoreapp2.2\Ejercicio Archivo.AssemblyInfo.cs
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\obj\Debug\netcoreapp2.2\Ejercicio Archivo.dll
+c:\Users\Santiago\Desktop\Lagash\Ejercicio Archivo\obj\Debug\netcoreapp2.2\Ejercicio Archivo.pdb
